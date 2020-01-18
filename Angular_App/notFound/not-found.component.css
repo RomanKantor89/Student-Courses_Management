@@ -1,0 +1,26 @@
+.image {
+  width: 100%;
+  height: 40vw;
+  background-image: url("https://images.alphacoders.com/107/thumb-1920-107763.jpg");
+  font-size: 3vw;
+
+  color: rgb(241, 226, 12);
+}
+
+#text {
+  position: absolute;
+  padding-left: 10%;
+  padding-top: 15%;
+}
+
+#btn {
+  position: absolute;
+
+  padding-left: 10%;
+  padding-top: 30%;
+}
+
+.btn-default {
+  background-color: rgb(156, 171, 221);
+  size: 30vw;
+}

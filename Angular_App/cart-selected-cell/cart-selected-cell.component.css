@@ -1,0 +1,45 @@
+div {
+  padding: 0.25em;
+  margin: 0.3em auto;
+  cursor: default;
+}
+
+.bgclr0 {
+  background-color: #7fffff;
+}
+
+.bgclr1 {
+  background-color: #fee599;
+}
+
+.bgclr2 {
+  background-color: #f7cbac;
+}
+
+.bgclr3 {
+  background-color: #adb9ca;
+}
+
+.bgclr4 {
+  background-color: #ff7fb6;
+}
+
+.bgclr5 {
+  background-color: #a5ff7f;
+}
+
+.bgclr6 {
+  background-color: #d8d8d8;
+}
+
+.bgclr7 {
+  background-color: #ffe97f;
+}
+
+.bgclr8 {
+  background-color: #c5e0b3;
+}
+
+.bgclr9 {
+  background-color: #bdd7ee;
+}

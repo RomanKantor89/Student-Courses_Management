@@ -1,0 +1,42 @@
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Main left-side "home" link -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#colapsedNav">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      <!-- home link -->
+      <a id="link" class="navbar-brand" routerLink="/home">Home</a>
+    </div>
+
+    <!-- Other links -->
+    <div class="collapse navbar-collapse" id="colapsedNav">
+      <ul class="nav navbar-nav">
+        <li>
+          <a id="link" routerLink="/about" data-toggle="collapse" data-target="#colapsedNav">About</a>
+        </li>
+        <li>
+          <a id="link" routerLink="/available-courses" data-toggle="collapse" data-target="#colapsedNav">Available courses</a>
+        </li>
+        <li>
+          <a id="link" routerLink="/help-info" data-toggle="collapse" data-target="#colapsedNav">Help info</a>
+        </li>
+        <li>
+          <a id="link" routerLink="/persons" data-toggle="collapse" data-target="#colapsedNav">Invalid route</a>
+        </li>
+        <li>
+          <a id="link" routerLink="/login" data-toggle="collapse" data-target="#colapsedNav">Login</a>
+        </li>
+        <li>
+            <a id="link" routerLink="/view-token" data-toggle="collapse" data-target="#colapsedNav">View token</a>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>

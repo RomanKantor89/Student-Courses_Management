@@ -1,0 +1,36 @@
+<h2>From the web service</h2>
+
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Student Id and Academic Program</th>
+        <th>Name</th>
+        <th>Birth Date</th>
+        <th>Email</th>
+        <th>Academic Level</th>
+        <th>GPA</th>
+        <th>Course History</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- looping through students -->
+      <tr *ngFor="let p of students">
+        <td id="td">{{ p.studentId + " " + p.academicProgram }}</td>
+        <td id="td">{{ p.familyName + " " + p.givenName }}</td>
+        <td id="td">{{ p.birthDate | date }}</td>
+        <td id="td">
+          <a href="mailto:{{ p.email }}">{{ p.email }}</a>
+        </td>
+        <td id="td">{{ p.academicLevel }}</td>
+        <td id="td">{{ p.gpa }}</td>
+        <td id="td">{{ p.credits.length }}</td>
+
+        <td id="td">
+          <a class="btn btn-default" routerLink="/students//username/{{p.email}}">Student Details</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,8 @@
+.table-striped thead tr {
+  background-color: rgb(221, 145, 145);
+  color: white;
+}
+
+.table-striped tbody {
+  background-color: rgb(238, 225, 225);
+}

@@ -1,0 +1,94 @@
+<div class="row">
+  <div class="col-md-7">
+    <!--Display student information-->
+    <h3 *ngIf="student">
+      Select courses - {{ student.givenName }} {{ student.familyName }},
+      {{ student.studentId }}
+    </h3>
+    <a
+      *ngIf="!!student"
+      class="btn btn-default"
+      routerLink="/students/username/{{ student.email }}">
+      Back to detail
+    </a>
+  </div>
+    <!--Buttons to handle the clear save and confirm-->
+  <div class="col-md-5">
+    <span>Select courses, then save, or confirm your selections</span><br />
+    <button
+      [disabled]="coursesSelected.length == 0"
+      class="btn btn-default"
+      (click)="taskClear()">Clear</button> 
+      &nbsp;
+    <button
+      [disabled]="coursesSelected.length == 0"
+      class="btn btn-info"
+      (click)="taskSaveCart()">Save for later</button>
+      &nbsp;
+    <button
+      [disabled]="coursesSelected.length == 0"
+      class="btn btn-primary"
+      (click)="taskConfirmTimeTable()">Confirm as your timetable</button>
+      <br />
+    <span *ngIf="!!message" ng-keyup="taskClear()" ng-keyup="taskSaveCart()">{{message}}</span>
+  </div>
+</div>
+<hr />
+<!--Display the available courses for this student-->
+<div class="row">
+  <div class="col-md-7">
+    <h4>Possible courses, next term</h4>
+    <div id="sd">
+      <table class="table table-striped table-condensed">
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Day and times</th>
+            <th>Enrolled</th>
+            <th>Professor</th>
+            <th>Add/Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--looping through matched courses-->
+          <tr *ngFor="let c of matchedCourses">
+            <td>
+              {{ c.courseCode + "-" + c.section }}<br />{{ c.termSectionId }}
+            </td>
+            <td>
+              <span *ngIf="c.classMon == 'Y'">Monday</span>
+              <span *ngIf="c.classTue == 'Y'">Tuesday</span>
+              <span *ngIf="c.classWed == 'Y'">Wednesday</span>
+              <span *ngIf="c.classThu == 'Y'">Thursday</span>
+              <span *ngIf="c.classFri == 'Y'">Friday</span>
+              <br />
+              {{ c.classStart + " to " + c.classEnd }}
+            </td>
+            <td>{{ c.enrolTotal }}</td>
+            <td>{{ c.professor }}</td>
+            <td>
+              <button [ngClass]="['btn',
+                  isCourseSelected(c) ?
+                  'btn-danger' : 'btn-success']"
+                  (click)="courseSelect(c)"> + / -
+              </button>
+              <br />
+              <span class="small text-danger" *ngIf="isCourseSelected(c)">(selected)</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="col-md-5">
+    <h4>Selected courses</h4>
+<!--rendering grid and cart selected list components-->
+    <app-cart-selected-grid
+      [coursesSelected]="coursesSelected"
+    ></app-cart-selected-grid>
+    <app-cart-selected-list
+      [coursesSelected]="coursesSelected"
+    ></app-cart-selected-list>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="row">
+  <h4>Activate Account - enter information, and click the Activate button</h4>
+  <div class='col-md-8 col-sm-12'>
+
+    <form (ngSubmit)='userActivate()' #f='ngForm'>
+
+      <!-- Edit to make this an Angular template-driven form -->
+
+      <div class="form-group">
+        <label class="control-label" for="userName">User name:</label>
+        <input type="text" [(ngModel)]="userAccount.userName" class="form-control" id="userName" name="userName"
+          required minlength="3" maxlength="100" #userName="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}">
+
+        <!-- Validation error area -->
+        <div *ngIf='userName.invalid && (userName.dirty || userName.touched)' class='alert alert-danger'>
+          <div *ngIf='userName.errors?.required'>User Name is required, 3 to 60 characters</div>
+          <div *ngIf='userName.errors?.minlength'>User Name must be at least 3 characters</div>
+          <div *ngIf='userName.errors?.pattern'>User name must be an email</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="password">Password:</label>
+        <input type="password" [(ngModel)]="userAccount.password" class="form-control" id="password" name="password"
+          required minlength="3" maxlength="100" #password="ngModel">
+        <!-- Validation error area -->
+        <div *ngIf='password.invalid && (password.dirty || password.touched)' class='alert alert-danger'>
+          <div *ngIf='password.errors?.required'>Password is required, 3 to 60 characters</div>
+          <div *ngIf='password.errors?.minlength'>Password must be at least 3 characters</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="confirmPassword">Confirm Password:</label>
+        <input type="password" [(ngModel)]="userAccount.passwordConfirm" class="form-control" id="confirmPassword"
+          name="confirmPassword" required minlength="3" maxlength="100" #passwordConfirm="ngModel">
+
+        <div *ngIf='passwordConfirm.invalid && (passwordConfirm.dirty || passwordConfirm.touched)'
+          class='alert alert-danger'>
+          <div *ngIf='passwordConfirm.errors?.required'>Password Confirmation is required, 3 to 60 characters</div>
+          <div *ngIf='passwordConfirm.errors?.minlength'>Password Confirmation must be at least 3 characters</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="role">Role:</label>
+        <select [(ngModel)]="userAccount.role" class="form-control" id="role" name="role" required>
+          <option>Professor</option>
+          <option>Student</option>
+          <option>Alumni</option>
+        </select>
+      </div>
+
+      <a class="btn btn-default" routerLink='/home'>Back to home</a>&nbsp;
+      <!-- <button class="btn btn-default" (click)='logout()'>Logout</button> -->
+      <button class="btn btn-primary" type="submit" [disabled]="!f.form.valid">Activate</button>&nbsp;&nbsp;
+      <span *ngIf='message.length>0' class="text-danger">{{ message }}</span>
+    </form>
+
+  </div>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

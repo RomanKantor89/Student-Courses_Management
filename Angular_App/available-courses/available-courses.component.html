@@ -1,0 +1,26 @@
+<h3>List of all available courses</h3>
+
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Course Id</th>
+        <th>Code</th>
+        <th> Section <br/> and Instance Id </th>
+        <th>Enrolled</th>
+        <th>Professor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- looping through courses -->
+      <tr *ngFor="let p of courses">
+        <td>{{ p.courseId }}</td>
+        <td>{{ p.courseCode }}</td>
+        <td>{{ p.section + "-" + p.termSectionId }}</td>
+        <td>{{ p.enrolTotal }}</td>
+        <td>{{ p.professor }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr/>

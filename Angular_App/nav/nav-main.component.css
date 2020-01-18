@@ -1,0 +1,11 @@
+.navbar-default {
+  border-radius: 5px;
+}
+.container-fluid {
+  background-color: rgb(148, 5, 5);
+  border-radius: 5px;
+}
+
+#link {
+  color: white;
+}
